@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import urllib.request
 
 window = tk.Tk()
-stories = []
+loadeddata = []
 
 
 def gengui():
@@ -19,18 +19,18 @@ def body():
 
 
 def grab(thecake):
-    global stories
+    global loaddata
     for data in thecake:
         htmlatag = data.find("h2", class_="title").find("a")
         headline = htmlatag.getText()
         url = htmlatag.get("href")
         d = {"headline": headline,
                 "url": url}
-        stories.append(d)
+        loadeddata.append(d)
 
 
 def getpayload():
-    global stories
+    global loadeddata
 
     payload = "http://www.foxnews.com/"
     page = urllib.request.urlopen(payload)
@@ -43,12 +43,12 @@ def getpayload():
 
 
 def displayinfo():
-    global stories
+    global loadeddata
     print("Data about your favorite bands: \n")
-    for i in range(0, len(stories)):
-        print(stories[i]["headline"])
+    for i in range(0, len(loadeddata)):
+        print(loadeddata[i]["headline"])
         print()
-        print(stories[i]['url'])
+        print(loadeddata[i]['url'])
         ""
 
 
