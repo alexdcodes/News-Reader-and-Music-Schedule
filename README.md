@@ -1,4 +1,6 @@
-# News Reader and Music Schedule
+# News Reader and Music Schedule Application
+
+Purpose: Education, playing around. 
 
 ## Change Log 
 
